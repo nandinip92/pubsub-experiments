@@ -1,6 +1,6 @@
-# Pub/Sub Experiments
+# Pub/Sub Experiments– Real-Time News Broadcaster 🗞️
 
-This repository is my *hands-on journal* for learning **Publish/Subscribe messaging systems**, covering:
+This repository demonstrates **Publish/Subscribe messaging** using the same small project — a **Real-time News Broadcaster** — across three technologies: **Redis**, **RabbitMQ**, and **Kafka**.
 
 1. **Redis Pub/Sub** – simple, lightweight, perfect for beginners  
 2. **RabbitMQ** – reliable message broker with queues and routing  
@@ -14,6 +14,13 @@ This repository is my *hands-on journal* for learning **Publish/Subscribe messag
   - **RabbitMQ** (reliable messaging)
 - Use **Docker Compose** to simulate multi-service setups
 - Compare performance and learning experience across systems
+
+## 🚀 Project Concept
+A simple application where:
+- A **publisher** sends random “breaking news” updates.
+- Multiple **subscribers** instantly receive those updates.
+
+This helps visualize how Pub/Sub works in real-time and compare the **behavior, reliability, and performance** of each system.
 
 ## 📂 Structure
 - `redis-version/` → Redis-based Pub/Sub
