@@ -31,8 +31,10 @@ This helps visualize how Pub/Sub works in real-time and compare the **behavior, 
 ```pgsql
 pubsub-experiments/
 ├── README.md                     # Main overview and learning path
-├── redis-version/
+├── redis-pubsub/
 │   ├── README.md                 # Redis-specific README
+|   ├── docs/
+│   |   └── redis-pubsub.md 
 │   ├── publisher-js/
 │   │   ├── package.json
 │   │   └── publisher.js
