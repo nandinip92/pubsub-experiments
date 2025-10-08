@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+
+    "dev:redis": "vite --mode redis",
+    "dev:rabbitmq": "vite --mode rabbitmq",
+    "dev:kafka": "vite --mode kafka"
   },
   "dependencies": {
     "react": "^19.1.1",
