@@ -158,9 +158,11 @@ python subscriber.py
 ### 4️⃣ Run the Frontend (Vite + React)
 
 ```bash
-cd frontend-vite
+cd ../frontend
 npm install
-npm run dev
+npm run dev -- --mode redis
+
+# [OR] npm run:redis
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser → type a message and hit “Send”

@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+// Use Vite environment variable, fallback to Redis default
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
+
 function App() {
   const [message, setMessage] = useState('');
 
@@ -7,7 +10,7 @@ function App() {
     if (!message) return;
 
     try {
-      await fetch('http://localhost:4000/publish', {
+      await fetch(`${BACKEND_URL}/publish`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
@@ -20,7 +23,7 @@ function App() {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h2>Redis Pub/Sub Demo</h2>
+      <h2>Pub/Sub Demo</h2>
       <input
         type="text"
         value={message}
