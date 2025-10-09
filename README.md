@@ -2,11 +2,12 @@
 
 This repository demonstrates **Publish/Subscribe messaging** using the same small project — a **Real-time News Broadcaster** — across three technologies: **Redis**, **RabbitMQ**, and **Kafka**.
 
-1. **Redis Pub/Sub** – simple, lightweight, perfect for beginners  
-2. **RabbitMQ** – reliable message broker with queues and routing  
-3. **Kafka** – distributed event streaming platform for scalable applications 
+1. **Redis Pub/Sub** – simple, lightweight, perfect for beginners
+2. **RabbitMQ** – reliable message broker with queues and routing
+3. **Kafka** – distributed event streaming platform for scalable applications
 
 ## 🚀 Goals
+
 - Understand the Pub/Sub communication model
 - Implement Pub/Sub using:
   - **Redis** (simple, lightweight)
@@ -16,13 +17,16 @@ This repository demonstrates **Publish/Subscribe messaging** using the same smal
 - Compare performance and learning experience across systems
 
 ## 🚀 Project Concept
+
 A simple application where:
+
 - A **publisher** sends random “breaking news” updates.
 - Multiple **subscribers** instantly receive those updates.
 
 This helps visualize how Pub/Sub works in real-time and compare the **behavior, reliability, and performance** of each system.
 
 ## 📂 Structure
+
 - `redis-version/` → Redis-based Pub/Sub
 - `kafka-version/` → Kafka-based Pub/Sub
 - `rabbitmq-version/` → RabbitMQ-based Pub/Sub
@@ -33,8 +37,8 @@ pubsub-experiments/
 ├── README.md                     # Main overview and learning path
 ├── redis-pubsub/
 │   ├── README.md                 # Redis-specific README
-|   ├── docs/
-│   |   └── redis-pubsub.md 
+│   ├── docs/
+│   │   └── redis-pubsub-setup.md
 │   ├── publisher-js/
 │   │   ├── package.json
 │   │   └── publisher.js
@@ -44,6 +48,10 @@ pubsub-experiments/
 │   └── docker-compose.yml
 ├── rabbitmq-version/
 │   ├── README.md                 # RabbitMQ-specific README
+│   ├── docs/
+│   │   └── rabbitmq-setup.md
+│   │   └── rabbitmq-publisher.md
+│   │   └── rabbitmq-subscriber.md
 │   ├── publisher-js/
 │   │   ├── package.json
 │   │   └── publisher.js
@@ -53,6 +61,10 @@ pubsub-experiments/
 │   └── docker-compose.yml
 ├── kafka-version/
 │   ├── README.md                 # Kafka-specific README
+│   ├── docs/
+│   │   └── kafka-setup.md
+│   │   └── kafka-producer.md
+│   │   └── kafka-consumer.md
 │   ├── producer-js/
 │   │   ├── package.json
 │   │   └── producer.js
@@ -60,34 +72,46 @@ pubsub-experiments/
 │   │   ├── requirements.txt
 │   │   └── consumer.py
 │   └── docker-compose.yml
+├── frontend/                     # Shared Vite + React frontend for all versions
+│   ├── package.json
+│   ├── index.html
+│   ├── .env.redis                # Environment config for Redis Pub/Sub
+│   ├── .env.rabbitmq             # Environment config for RabbitMQ Pub/Sub
+│   ├── .env.kafka                # Environment config for Kafka Pub/Sub
+│   └── src/
+│       ├── main.jsx
+│       └── App.jsx
 └── notes/
     ├── redis-pubsub.md
     ├── rabbitmq-pubsub.md
     ├── kafka-pubsub.md
     └── comparison.md
 
+
 ```
 
 ## 🛠️ Tech Stack
+
 - Node.js, Python
 - Redis, Kafka, RabbitMQ
 - Docker Compose
 
 ## ✅ Progress Log
-| Date | Focus | Notes |
-|------|-------|------|
-| 2025-10-07 | Setup repo | Initialized folder structure |
-| 2025-10-08 | Redis | Implemented JS publisher and Python subscriber |
-| 2025-10-09 | Kafka | Implemented Node.js producer and Python consumer |
-| 2025-10-10 | RabbitMQ | Implemented Node.js publisher and Python subscriber |
+
+| Date       | Focus      | Notes                                               |
+| ---------- | ---------- | --------------------------------------------------- |
+| 2025-10-07 | Setup repo | Initialized folder structure                        |
+| 2025-10-08 | Redis      | Implemented JS publisher and Python subscriber      |
+| 2025-10-09 | Kafka      | Implemented Node.js producer and Python consumer    |
+| 2025-10-10 | RabbitMQ   | Implemented Node.js publisher and Python subscriber |
 
 ## 📘 Learning Path
-| Step | System       | Focus |
-|------|-------------|-------|
-| 1    | Redis       | Basic Pub/Sub, channels, lightweight messaging |
-| 2    | RabbitMQ    | Message broker, queues, exchanges, reliability |
-| 3    | Kafka       | Event streaming, partitions, consumer groups, scalability |
 
+| Step | System   | Focus                                                     |
+| ---- | -------- | --------------------------------------------------------- |
+| 1    | Redis    | Basic Pub/Sub, channels, lightweight messaging            |
+| 2    | RabbitMQ | Message broker, queues, exchanges, reliability            |
+| 3    | Kafka    | Event streaming, partitions, consumer groups, scalability |
 
 ## Summary Table
 
