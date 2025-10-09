@@ -2,21 +2,25 @@ import pika
 
 RABBITMQ_URL = "amqp://guest:guest@localhost:5672"
 EXCHANGE_NAME = "news-exchange"
+QUEUE_NAME = "persistent-news-queue"  # named queue
 
+# Connect to RabbitMQ
 params = pika.URLParameters(RABBITMQ_URL)
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
 
-# Create temporary queue and bind to fanout exchange
-result = channel.queue_declare(queue="", exclusive=True)
-queue_name = result.method.queue
-channel.exchange_declare(exchange=EXCHANGE_NAME, exchange_type='fanout')
-channel.queue_bind(exchange=EXCHANGE_NAME, queue=queue_name)
+# Declare a durable queue and fanout exchange
+channel.exchange_declare(exchange=EXCHANGE_NAME, exchange_type="fanout", durable=True)
+channel.queue_declare(queue=QUEUE_NAME, durable=True)
 
-print("Waiting for messages. Press CTRL+C to exit.")
+# Bind the queue to the exchange
+channel.queue_bind(exchange=EXCHANGE_NAME, queue=QUEUE_NAME)
+
+print("Waiting for persistent messages. Press CTRL+C to exit.")
 
 def callback(ch, method, properties, body):
-    print(f"[Subscriber] Received: {body.decode()}")
+    print(f"[Persistent Subscriber] Received: {body.decode()}")
+    ch.basic_ack(delivery_tag=method.delivery_tag)  # manual ack
 
-channel.basic_consume(queue=queue_name, on_message_callback=callback, auto_ack=True)
+channel.basic_consume(queue=QUEUE_NAME, on_message_callback=callback, auto_ack=False)
 channel.start_consuming()

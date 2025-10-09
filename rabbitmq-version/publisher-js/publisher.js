@@ -14,7 +14,7 @@ let channel;
 async function connectRabbitMQ() {
   const connection = await amqp.connect(RABBITMQ_URL);
   channel = await connection.createChannel();
-  await channel.assertExchange(EXCHANGE_NAME, "fanout", { durable: false });
+  await channel.assertExchange(EXCHANGE_NAME, "fanout", { durable: true });
   console.log("Connected to RabbitMQ and exchange created");
 }
 connectRabbitMQ();
