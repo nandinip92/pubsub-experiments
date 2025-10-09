@@ -116,6 +116,7 @@ redis-pubsub/
 │   └── subscriber.py
 └── frontend/                    # Vite + React app
     ├── package.json
+│   ├── .env.redis               # Environment config for Redis Pub/Sub
     ├── index.html
     └── src/
         ├── main.jsx
