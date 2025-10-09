@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181       # Port for Kafka brokers to connect
+      ZOOKEEPER_TICK_TIME: 2000         # Heartbeat interval for Zookeeper
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"                     # Client port for producer/consumer
+    environment:
+      KAFKA_BROKER_ID: 1                 # Unique broker ID
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181  # Connect to Zookeeper for metadata
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092  # For clients outside docker
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1  # Minimal replication for beginner setup
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"   # <-- Enable auto topic creation
