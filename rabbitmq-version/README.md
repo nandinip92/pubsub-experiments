@@ -145,6 +145,8 @@ rabbitmq-pubsub/
 │   └── subscriber.py
 ├── docs/                           # Documentation for setup & learning notes
 │   └── rabbitmq-setup.md
+│   └── rabbitmq-publisher.md
+│   └── rabbitmq-subscriber.md
 └── ../frontend/                    # Shared Vite + React frontend
     ├── package.json
     ├── index.html
