@@ -108,6 +108,7 @@ kafka-version/
 │   └── kafka-consumer.md
 └── ../frontend/                    # Shared Vite + React frontend
     ├── package.json
+│   ├── .env.kafka                # Environment config for Kafka Pub/Sub
     ├── index.html
     └── src/
         ├── main.jsx
